@@ -4,7 +4,8 @@
   "description": "The backend for Water My Plants 01",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "nodemon index.js",
+    "test": "cross-env DB_ENV=testing jest --watch"
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,8 @@
     "jest": "^25.1.0",
     "nodemon": "^2.0.2",
     "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

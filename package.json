@@ -1,0 +1,19 @@
+{
+  "name": "water-my-plants",
+  "version": "1.0.0",
+  "description": "The backend for Water My Plants 01",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1-water-my-plants/backend.git"
+  },
+  "author": "William Mooney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1-water-my-plants/backend/issues"
+  },
+  "homepage": "https://github.com/1-water-my-plants/backend#readme"
+}

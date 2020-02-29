@@ -16,10 +16,10 @@ function generateToken(user) {
 }
 
 router.post('/register', (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, phoneNumber } = req.body;
   const bcrypt = require('bcryptjs');
 
-  Users.insert({ username, password: bcrypt.hashSync(password, 8) })
+  Users.insert({ username, password: bcrypt.hashSync(password, 8), phoneNumber })
     .then(id => {
       res.status(201).json({ message: 'User registered', id });
     })

@@ -1,5 +1,7 @@
 # Water My Plants (Backend)
 
+Heroku Deployment(https://webpt9-water-my-plants.herokuapp.com/)
+
 Sections:
 - [API Endpoints](#api-endpoints)
 - [Tables](#tables)

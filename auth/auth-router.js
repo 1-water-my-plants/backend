@@ -5,6 +5,7 @@ const express = require('express');
 const server = express();
 const plantsRouter = require('../plants/plants-router.js');
 const authenticate = require('../auth/authenticate-middleware.js');
+const bcrypt = require('bcryptjs');
 
 function generateToken(user) {
   const payload = {
@@ -21,7 +22,6 @@ function generateToken(user) {
 
 router.post('/register', (req, res) => {
   const { username, password, phoneNumber } = req.body;
-  const bcrypt = require('bcryptjs');
 
   Users.insert({ username, password: bcrypt.hashSync(password, 8), phoneNumber })
     .then(id => {
@@ -35,7 +35,6 @@ router.post('/register', (req, res) => {
 
 router.post('/login', (req, res) => {
   const { username, password } = req.body;
-  const bcrypt = require('bcryptjs'); 
 
   Users
   .findByUsername(username)
@@ -58,6 +57,9 @@ router.post('/login', (req, res) => {
 router.put('/:id', (req, res) => {
   const { id } = req.params;
   const changes = req.body;
+  if (changes.password) {
+    changes.password = bcrypt.hashSync(changes.password, 8);
+  }
 
   Users.findById(id)
   .then(user => {

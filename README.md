@@ -86,6 +86,21 @@ If successful, it will return with a `201` HTTP status and an object with this f
 
 [Top of API section](#api-endpoints) | [Top of page](#water-my-plants-backend)
 
+### /api/auth/:id PUT
+
+Update only the values you need to.  It expects an object with this format as the request body:
+```
+{
+        "password": "somepassword",  //optional/string
+        "phoneNumber": "9795543658",  //optional/string
+}
+```
+
+If successful, it will return with a `201` HTTP status and an object of the new data:
+
+
+[Top of API section](#api-endpoints) | [Top of page](#water-my-plants-backend)
+
 ### /api/:user_id/plants GET
 
 Requires an Authorization in the Header with the JWT Token.  Without the token you will get a 401 status.  The user_id can be found by req.user.id
@@ -156,6 +171,19 @@ If successful, it will return with a `201` HTTP status and an object of in this 
         "h2oFrequency": 3,
         "image": "https://www.houseplantsexpert.com/image-files/aloevera.jpg",
         "user_id": 1
+}
+```
+
+[Top of API section](#api-endpoints) | [Top of page](#water-my-plants-backend)
+
+### /api/:user_id/plants/:id DELETE
+
+Requires an Authorization in the Header with the JWT Token.  Without the token you will get a 401 status.  The user_id can be found by req.user.id
+
+If successful, it will return with a `204` HTTP status and an object of in this format:
+```
+{
+        "removed": 1
 }
 ```
 

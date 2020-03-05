@@ -18,8 +18,16 @@ function findByUsername(username) {
   return findBy({ username }).first();
 }
 
+function update(changes, id) {
+  return db('users').where({id: id}).update(changes)
+      .then((res) => {
+          return db('users').where({id});
+      })
+}
+
 module.exports = {
   insert,
+  update,
   find,
   findBy,
   findByUsername

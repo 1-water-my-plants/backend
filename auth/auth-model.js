@@ -34,5 +34,6 @@ module.exports = {
   update,
   find,
   findBy,
+  findById,
   findByUsername
 }

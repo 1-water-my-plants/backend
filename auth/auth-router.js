@@ -1,6 +1,10 @@
 const router = require('express').Router();
 const Users = require('./auth-model.js');
 const jwt = require('jsonwebtoken');
+const express = require('express');
+const server = express();
+const plantsRouter = require('../plants/plants-router.js');
+const authenticate = require('../auth/authenticate-middleware.js');
 
 function generateToken(user) {
   const payload = {

@@ -11,6 +11,9 @@ Sections:
 Section Contents:
 - [/api/auth/login POST](#authlogin-post)
 - [/api/auth/register POST](#authregister-post)
+- [/api/:user_id/plants GET]
+- [/api/:user_id/plants POST]
+- [/api/:user_id/plants/:id PUT]
 
 ### /api/auth/login POST
 
@@ -72,6 +75,81 @@ If successful, it will return with a `201` HTTP status and an object with this f
 {
     "message": "User registered",
     "id": 4
+}
+```
+
+[Top of API section](#api-endpoints) | [Top of page](#water-my-plants-backend)
+
+### /api/:user_id/plants GET
+
+Requires an Authorization in the Header with the JWT Token.  Without the token you will get a 401 status.  The user_id can be found by req.user.id
+
+If successful, it will return with a `201` HTTP status and an object of all the plants associated with the user_id in this format:
+```
+{
+        "id": 1,
+        "nickname": "Aloe Vera",
+        "species": "Aloee",
+        "h2oFrequency": 3,
+        "image": "https://www.houseplantsexpert.com/image-files/aloevera.jpg",
+        "user_id": 1
+}
+```
+
+[Top of API section](#api-endpoints) | [Top of page](#water-my-plants-backend)
+
+### /api/:user_id/plants POST
+
+Requires an Authorization in the Header with the JWT Token.  Without the token you will get a 401 status.  The user_id can be found by req.user.id
+
+Expects an object with this format as the request body:
+```
+{
+        "nickname": "Aloe Vera",  //required/string/unique
+        "species": "Aloe",  //required/string
+        "h2oFrequency": 3,  //required/integer 1 to 10
+        "image": "https://www.houseplantsexpert.com/image-files/aloevera.jpg",  //optional
+        "user_id": 1  // required - get from req.user.id
+}
+```
+
+If successful, it will return with a `201` HTTP status and an object of in this format:
+```
+{
+        "id": 1,
+        "nickname": "Aloe Vera",
+        "species": "Aloee",
+        "h2oFrequency": 3,
+        "image": "https://www.houseplantsexpert.com/image-files/aloevera.jpg",
+        "user_id": 1
+}
+```
+
+[Top of API section](#api-endpoints) | [Top of page](#water-my-plants-backend)
+
+### /api/:user_id/plants/:id PUT
+
+Requires an Authorization in the Header with the JWT Token.  Without the token you will get a 401 status.  The user_id can be found by req.user.id
+
+Update only the key & values you need to.  It expects an object with this format as the request body:
+```
+{
+        "nickname": "Aloe Vera",  //optional/string/unique
+        "species": "Aloe",  //optional/string
+        "h2oFrequency": 3,  //optional/integer 1 to 10
+        "image": "https://www.houseplantsexpert.com/image-files/aloevera.jpg",  //optional
+}
+```
+
+If successful, it will return with a `201` HTTP status and an object of in this format:
+```
+{
+        "id": 1,
+        "nickname": "Aloe Vera",
+        "species": "Aloee",
+        "h2oFrequency": 3,
+        "image": "https://www.houseplantsexpert.com/image-files/aloevera.jpg",
+        "user_id": 1
 }
 ```
 

@@ -40,7 +40,7 @@ router.post('/login', (req, res) => {
 
     if (user && bcryptPass) {
       const token = generateToken(user);
-      res.status(200).json({ message: 'User logged in', token });
+      res.status(200).json({ message: 'User logged in', token, user });
     } else {
       res.status(401).json({ errorMessage: 'User credentials failed' });
     }

@@ -17,13 +17,34 @@ Section Contents:
 Expects an object with this format as the request body:
 ```
 {
-  "username": "User1",   //string
-  "password": "password" //string
+  "username": "Fred Thomas",   //string
+  "password": "pass" //string
 }
 ```
+
+Below is the default users.
+
+```
+{
+  "username": "Fred Thomas",   //string
+  "password": "pass", //string
+  "user_id": 1
+}
+{
+  "username": "Frank Billings",   //string
+  "password": "youshallnotpass", //string
+  "user_id": 1
+}
+{
+  "username": "John Smith'",   //string
+  "password": "myprecious", //string
+  "user_id": 1
+}
+```
+
 If the username doesn't exist in the [`users`](#users) table or the password doesn't match, it will reject the request with a `401` HTTP status.
 
-If successful, it will return with a `200` HTTP status and an object with this format (same as register):
+If successful, it will return with a `200` HTTP status and an object with this format:
 ```
 {
     "message": "User logged in",

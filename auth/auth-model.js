@@ -14,6 +14,10 @@ function findBy(where) {
   return db('users').where(where);
 }
 
+function findById(id) {
+  return db('users').where({id});
+};
+
 function findByUsername(username) {
   return findBy({ username }).first();
 }

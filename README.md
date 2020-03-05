@@ -51,7 +51,13 @@ If successful, it will return with a `200` HTTP status and an object with this f
 ```
 {
     "message": "User logged in",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkZyZWQgVGhvbWFzIiwiaWQiOjEsImlhdCI6MTU4Mjk0OTk4NywiZXhwIjoxNTgzMDM2Mzg3fQ.H0A6n1SVIua-wYDgeBRvoJ3w09XBqXv1Mt4hfS0tiO4"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkZyZWQgVGhvbWFzIiwiaWQiOjEsImlhdCI6MTU4Mjk0OTk4NywiZXhwIjoxNTgzMDM2Mzg3fQ.H0A6n1SVIua-wYDgeBRvoJ3w09XBqXv1Mt4hfS0tiO4",
+    "user": {
+        "id": 1,
+        "username": "Fred Thomas",
+        "password": "$2a$08$DUgI9rLgYhsUDcgFJTxNQOWyra.RxOTrHvPZ.uGcNSg2v/F5kjuYa",
+        "phoneNumber": "9895502785"
+    }
 }
 ```
 - `token`: A JSON Web Token

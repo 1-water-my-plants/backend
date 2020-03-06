@@ -5,7 +5,6 @@ const authenticate = require('../auth/authenticate-middleware.js');
 jest.mock('../auth/authenticate-middleware.js');
 
 beforeEach(async () => {
-  await db('plants').truncate();
   authenticate.mockClear();
 })
 
@@ -31,8 +30,8 @@ describe('plants', () => {
       next();
     });
     const res = await request(server)
-          .post('/api/1/plants')
-          .send({nickname: 'African Violet', species: 'Saintpaulia', h2oFrequency: 4, image: 'https://www.houseplantsexpert.com/image-files/african-violet.jpg', user_id: 1 })
+          .post('/api/1/plants/')
+          .send({nickname: 'African Violet3', species: 'Saintpaulia', h2oFrequency: 4, image: 'https://www.houseplantsexpert.com/image-files/african-violet.jpg', user_id: 1 })
     expect(res.status).toBe(201);
     expect(authenticate).toBeCalled();
   });
@@ -59,8 +58,8 @@ describe('plants', () => {
       next();
     });
     const res = await request(server)
-          .delete('/api/1/plants/1')
-    expect(res.status).toBe(200);
+          .delete('/api/1/plants/4')
+    expect(res.status).toEqual(200);
     expect(authenticate).toBeCalled();
   });
 });

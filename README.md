@@ -11,9 +11,11 @@ Sections:
 Section Contents:
 - [/api/auth/login POST](#authlogin-post)
 - [/api/auth/register POST](#authregister-post)
-- [/api/:user_id/plants GET]
-- [/api/:user_id/plants POST]
-- [/api/:user_id/plants/:id PUT]
+- [/api/auth/:id PUT](#authupdate-put)
+- [/api/:user_id/plants GET](#plantsget-get)
+- [/api/:user_id/plants POST](#plantspost-post)
+- [/api/:user_id/plants/:id PUT](#plantsupdate-put)
+- [/api/:user_id/plants/:id DELETE](#plantsremove-delete)
 
 ### /api/auth/login POST
 

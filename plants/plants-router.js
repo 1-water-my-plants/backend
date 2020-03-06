@@ -33,7 +33,7 @@ router.put('/:id', (req, res) => {
     if (plant) {
       Plants.update(changes, id)
       .then(updatedPlant => {
-        res.json(updatedPlant);
+        res.status(200).json(updatedPlant);
       });
     } else {
       res.status(404).json({ message: 'Could not find plant with given id' });
@@ -50,7 +50,8 @@ router.delete('/:id', (req, res) => {
   Plants.remove(id)
   .then(deleted => {
     if (deleted) {
-      res.json({ removed: deleted });
+      console.log(deleted);
+      res.status(200).json({ removed: deleted });
     } else {
       res.status(404).json({ message: 'Could not find plant with given id' });
     }

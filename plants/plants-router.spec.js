@@ -5,6 +5,8 @@ const authenticate = require('../auth/authenticate-middleware.js');
 jest.mock('../auth/authenticate-middleware.js');
 
 beforeEach(async () => {
+  await db('plants').truncate();
+  await db.seed.run();
   authenticate.mockClear();
 })
 

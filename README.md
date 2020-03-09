@@ -38,12 +38,12 @@ Below is the default users.
 {
   "username": "Frank Billings",   //string
   "password": "youshallnotpass", //string
-  "user_id": 1
+  "user_id": 2
 }
 {
   "username": "John Smith'",   //string
   "password": "myprecious", //string
-  "user_id": 1
+  "user_id": 3
 }
 ```
 
